@@ -1,8 +1,35 @@
-FROM php:5-fpm
+FROM alpine:3.4
 
 MAINTAINER Jonathan Johnson <jon.johnson@ucsf.edu>
-RUN apt-get update
-RUN pecl install apcu-4.0.11 && echo extension=apcu.so > /usr/local/etc/php/conf.d/apcu.ini
-RUN apt-get install libldap2-dev && ln -s /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so && docker-php-ext-install ldap
-RUN apt-get install libxml2-dev && docker-php-ext-install xml
-RUN docker-php-ext-install mysqli pdo_mysql mbstring
+
+RUN apk add --update \
+    php5-fpm \
+    php5-apcu \
+    php5-ctype \
+    php5-curl \
+    php5-dom \
+    php5-gd \
+    php5-iconv \
+    php5-imagick \
+    php5-intl \
+    php5-json \
+    php5-ldap \
+    php5-mcrypt \
+    php5-mbstring \
+    php5-mysql \
+    php5-opcache \
+    php5-openssl \
+    php5-pdo \
+    php5-pdo_mysql \
+    php5-mysqli \
+    php5-xml \
+    php5-zlib
+
+RUN rm -rf /var/cache/apk/* && rm -rf /tmp/*
+
+ADD ilios.ini /etc/php5/fpm/conf.d/
+ADD ilios.ini /etc/php5/cli/conf.d/
+
+CMD ["php-fpm", "-F"]
+
+EXPOSE 9000
