@@ -28,6 +28,7 @@ RUN rm -rf /var/cache/apk/* && rm -rf /tmp/*
 
 ADD ilios.ini /etc/php5/fpm/conf.d/
 ADD ilios.ini /etc/php5/cli/conf.d/
+ADD php-fpm.conf /etc/php5/
 
 CMD ["php-fpm", "-F"]
 
