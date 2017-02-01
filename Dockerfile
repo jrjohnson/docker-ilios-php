@@ -29,6 +29,7 @@ ADD ilios.ini /etc/php7/fpm/conf.d/
 ADD ilios.ini /etc/php7/cli/conf.d/
 ADD php-fpm.conf /etc/php7/
 ADD parameters.yml-default /var/www/ilios/app/config/parameters.yml
+RUN chown -R nobody /var/www/ilios/var
 
 VOLUME /data
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
