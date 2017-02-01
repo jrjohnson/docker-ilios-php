@@ -1,6 +1,6 @@
-FROM alpine:3.4
+FROM iamjrjohnson/ilios-src
 
-MAINTAINER Jonathan Johnson <jon.johnson@ucsf.edu>
+MAINTAINER Ilios Project Team <support@iliosproject.org>
 
 RUN apk add --update \
     php5-fpm \
