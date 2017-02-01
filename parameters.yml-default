@@ -4,8 +4,8 @@ parameters:
     database_host:          127.0.0.1
     database_port:          ~
     database_name:          ilios
-    database_user:          ilios_user
-    database_password:      ilios_pass
+    database_user:          ilios
+    database_password:      ilios
     database_mysql_version: 5.7
 
     mailer_transport:  smtp
@@ -22,7 +22,7 @@ parameters:
     debug_redirects:        false
 
     authentication_type: "form"
-    legacy_password_salt: "Ilios2 ilios_authentication_internal_auth_salt value"
+    legacy_password_salt: null
     file_system_storage_path: "/data"
 
     institution_domain: "Internet domain name of this institution, used for curriculum inventory reporting to the AAMC."
@@ -41,7 +41,7 @@ parameters:
     shibboleth_authentication_logout_path: "/Shibboleth.sso/Logout"
     shibboleth_authentication_user_id_attribute: "eppn"
     timezone: 'America/Los_Angeles'
-    forceProtocol: https
+    forceProtocol: http
     keep_frontend_updated: true
     cas_authentication_server: null
     cas_authentication_version: 3
