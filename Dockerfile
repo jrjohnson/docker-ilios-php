@@ -22,6 +22,7 @@ RUN apk add --update \
     php7-ctype
 
 RUN ln -s /usr/bin/php7 /usr/bin/php
+RUN ln -s /usr/sbin/php-fpm7 /usr/sbin/php-fpm
 RUN rm -rf /var/cache/apk/* && rm -rf /tmp/*
 
 ADD ilios.ini /etc/php7/fpm/conf.d/
