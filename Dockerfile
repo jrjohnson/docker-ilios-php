@@ -2,6 +2,11 @@ FROM iamjrjohnson/ilios-src:latest
 
 MAINTAINER Ilios Project Team <support@iliosproject.org>
 
+ENV COMPOSER_HOME /tmp
+ENV SYMFONY_ENV prod
+ENV ILIOS_API_ENVIRONMENT prod
+ENV ILIOS_API_DEBUG false
+
 RUN apk add --update \
     curl \
     php7 \
@@ -34,7 +39,7 @@ RUN chown nobody /var/www/ilios/app/config/parameters.yml
 VOLUME /data
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 USER nobody
-RUN COMPOSER_CACHE_DIR=/tmp SYMFONY_ENV=prod /usr/local/bin/composer install \
+RUN /usr/local/bin/composer install \
   --working-dir /var/www/ilios \
   --prefer-dist \
   --no-dev \
