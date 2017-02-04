@@ -1,4 +1,4 @@
-FROM iamjrjohnson/ilios-src:latest
+FROM ilios/source:v3.26.0
 
 MAINTAINER Ilios Project Team <support@iliosproject.org>
 
